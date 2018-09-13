@@ -1,0 +1,37 @@
+<html>
+<style>
+    body{
+    ul li
+}
+ul li:nth-child(odd) {
+  background: #f9f9f9;}
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;}
+a:
+</style>
+<body>
+		<section class="todoapp">
+			<header class="header">
+				<h1 ><strong>Todos app List</strong></h1>
+				<form action="{{ url_for('add_task') }}" method="POST">
+					<input class="new-todo" name="task" placeholder="Enter items" autofocus required>
+					<input type="submit" name="submit" class="submit_button" value="Submit">
+				</form>
+
+			</header>
+        </section>
+<ul class="todo-list">
+    <li>
+    {% for task in tasks %}
+		<p style="font-size:20px;">{{task['task']}}<a href="{{url_for('delete_task')}}"  text-ali><center>X</center> </a>
+		</p>
+	</li>
+{% endfor%}
+</ul>
+<a href="{{url_for('update')}}" methods="POST">update all</a>
+		<p>	<a href="{{url_for('remove_all')}}">Remove all</a>
+</p>
+</body>
+</html>
